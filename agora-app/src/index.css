@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@import "@fontsource/eb-garamond/400.css";
+@import "@fontsource/eb-garamond/400-italic.css";
+@import "@fontsource/eb-garamond/500.css";
+@import "@fontsource/eb-garamond/600.css";
+@import "@fontsource/public-sans/400.css";
+@import "@fontsource/public-sans/500.css";
+@import "@fontsource/public-sans/600.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+@theme {
+  --font-serif: "EB Garamond", "Iowan Old Style", ui-serif, Georgia, serif;
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+  --color-stone-50: #f4f5f0;
+  --color-stone-100: #e9ebe2;
+  --color-stone-200: #d7dacb;
+  --color-stone-300: #b9bea8;
+  --color-stone-400: #9ba180;
+  --color-stone-600: #5c6249;
+  --color-stone-800: #33362a;
+  --color-ink-900: #1b1e18;
+  --color-ink-950: #101210;
+
+  --color-basalt-900: #1a1d1f;
+  --color-basalt-950: #101214;
+  --color-basalt-800: #24282b;
+  --color-parchment-100: #eae5d6;
+  --color-parchment-300: #c9c3ac;
+
+  --color-verdigris-400: #6fa893;
+  --color-verdigris-500: #4b7a6b;
+  --color-verdigris-600: #3e6b5c;
+  --color-verdigris-700: #325749;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-stone-50);
+  color: var(--color-ink-900);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--color-basalt-950);
+    color: var(--color-parchment-100);
+  }
+}
+
+::selection {
+  background-color: var(--color-verdigris-500);
+  color: var(--color-stone-50);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
