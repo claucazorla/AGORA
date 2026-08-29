@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Class-based dark mode: the .dark class is applied by the bootstrap script
+   in index.html, which resolves data-theme (an explicit host toggle) and
+   falls back to prefers-color-scheme when no explicit choice is stamped. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @import "@fontsource/eb-garamond/400.css";
 @import "@fontsource/eb-garamond/400-italic.css";
 @import "@fontsource/eb-garamond/500.css";
@@ -51,11 +56,9 @@ body {
   color: var(--color-ink-900);
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--color-basalt-950);
-    color: var(--color-parchment-100);
-  }
+:root.dark body {
+  background-color: var(--color-basalt-950);
+  color: var(--color-parchment-100);
 }
 
 ::selection {
