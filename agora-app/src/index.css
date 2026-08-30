@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-/* Class-based dark mode: the .dark class is applied by the bootstrap script
-   in index.html, which resolves data-theme (an explicit host toggle) and
-   falls back to prefers-color-scheme when no explicit choice is stamped. */
-@custom-variant dark (&:where(.dark, .dark *));
-
 @import "@fontsource/eb-garamond/400.css";
 @import "@fontsource/eb-garamond/400-italic.css";
 @import "@fontsource/eb-garamond/500.css";
@@ -14,36 +9,48 @@
 @import "@fontsource/public-sans/600.css";
 @import "@fontsource/ibm-plex-mono/400.css";
 @import "@fontsource/ibm-plex-mono/500.css";
+@import "@fontsource/big-shoulders-display/700";
+@import "@fontsource/big-shoulders-display/800";
+@import "@fontsource/big-shoulders-display/900";
 
 @theme {
+  /* Display: the app's architecture, monumental and condensed, evoking
+     carved civic lettering. Used sparingly, at scale, for the wordmark and
+     structural headings. */
+  --font-display: "Big Shoulders Display", "Oswald", ui-sans-serif, system-ui, sans-serif;
+  /* Serif: the philosophers' own voice inside a dialogue. Quiet and warm,
+     deliberately distinct from the display layer's confidence. */
   --font-serif: "EB Garamond", "Iowan Old Style", ui-serif, Georgia, serif;
   --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
 
-  --color-stone-50: #f4f5f0;
-  --color-stone-100: #e9ebe2;
-  --color-stone-200: #d7dacb;
-  --color-stone-300: #b9bea8;
-  --color-stone-400: #9ba180;
-  --color-stone-600: #5c6249;
-  --color-stone-800: #33362a;
-  --color-ink-900: #1b1e18;
-  --color-ink-950: #101210;
+  /* Ground: a single committed dark world, warm-neutral rather than pure
+     black, so it reads as considered stone/basalt rather than a default
+     app-shell black. */
+  --color-basalt-950: #0e0f0f;
+  --color-basalt-900: #17191a;
+  --color-basalt-800: #212426;
+  --color-basalt-700: #2c3032;
+  --color-basalt-600: #454b4e;
 
-  --color-basalt-900: #1a1d1f;
-  --color-basalt-950: #101214;
-  --color-basalt-800: #24282b;
-  --color-parchment-100: #eae5d6;
-  --color-parchment-300: #c9c3ac;
+  --color-parchment-100: #ece6d6;
+  --color-parchment-300: #c9c1a8;
+  --color-parchment-500: #8b8672;
 
+  /* Accent: aged bronze/patina, the one color that carries weight across
+     the whole product. */
+  --color-verdigris-300: #8ec1ac;
   --color-verdigris-400: #6fa893;
-  --color-verdigris-500: #4b7a6b;
-  --color-verdigris-600: #3e6b5c;
-  --color-verdigris-700: #325749;
+  --color-verdigris-500: #57937d;
+  --color-verdigris-600: #457a67;
+
+  /* Warning-adjacent secondary, used only for "coming soon" desaturation,
+     never as a second accent. */
+  --color-mute-500: #63625c;
 }
 
 :root {
-  color-scheme: light dark;
+  color-scheme: dark;
 }
 
 html {
@@ -52,18 +59,19 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-stone-50);
-  color: var(--color-ink-900);
-}
-
-:root.dark body {
   background-color: var(--color-basalt-950);
   color: var(--color-parchment-100);
 }
 
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
 ::selection {
   background-color: var(--color-verdigris-500);
-  color: var(--color-stone-50);
+  color: var(--color-basalt-950);
 }
 
 @media (prefers-reduced-motion: reduce) {

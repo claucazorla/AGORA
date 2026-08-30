@@ -9,25 +9,6 @@
       content="Argue with the dead. A Socratic-style philosophical dialogue app grounded in Plato's early dialogues."
     />
     <title>Agora - Argue with the dead</title>
-    <script>
-      (function () {
-        function computeDark() {
-          var explicit = document.documentElement.getAttribute("data-theme");
-          if (explicit === "dark") return true;
-          if (explicit === "light") return false;
-          return window.matchMedia("(prefers-color-scheme: dark)").matches;
-        }
-        function apply() {
-          document.documentElement.classList.toggle("dark", computeDark());
-        }
-        apply();
-        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", apply);
-        new MutationObserver(apply).observe(document.documentElement, {
-          attributes: true,
-          attributeFilter: ["data-theme"],
-        });
-      })();
-    </script>
   </head>
   <body>
     <div id="root"></div>
